@@ -1,3 +1,4 @@
+from datetime import datetime
 
 def analyze_numbers(numbers):
     # This function takes a list of numbers and returns basic statistics.
@@ -58,6 +59,24 @@ def collect_and_analyze():
         print(f"Maximum: {results.get('max')}")
     else:
         print("No numbers to analyze.")
+    
+    #save results to a file named report.txt
+    #include a timestamp of when the analysis was performed
+    #overwrite the file if it already exists
+    #do not create a new function for this task
+    
+    with open("report.txt", "w") as f:
+        f.write(f"Analysis Report - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write("Numbers Entered:\n")
+        for num in numbers:
+            f.write(f"{num}\n")
+        f.write("\nStatistics:\n")
+        f.write(f"Total: {results.get('total')}\n")
+        f.write(f"Count: {results.get('count')}\n")
+        f.write(f"Average: {results.get('average'):.2f}\n")
+        f.write(f"Minimum: {results.get('min')}\n")
+        f.write(f"Maximum: {results.get('max')}\n")
+    print("\nAnalysis report saved to report.txt")
 
 
 def main():
