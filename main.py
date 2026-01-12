@@ -1,4 +1,4 @@
-from storage import save_numbers, load_numbers, save_report, print_report
+from storage import save_numbers, load_numbers, save_report
 from analyzer import analyze_numbers
 
 
