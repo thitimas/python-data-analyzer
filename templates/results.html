@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Analysis Results — Data Analyzer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <h1 class="brand">Data Analyzer</h1>
+            <p class="tagline">Clear, fast summaries of your numbers</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card" role="region" aria-labelledby="results-title">
+            <h2 id="results-title">Analysis Results</h2>
+            {% if results %}
+            <div class="results-grid" role="region" aria-label="Analysis summary">
+                <div class="result-card">
+                    <div class="label">Count</div>
+                    <div class="value">{{ results.count }}</div>
+                </div>
+                <div class="result-card">
+                    <div class="label">Min</div>
+                    <div class="value">{{ results.min }}</div>
+                </div>
+                <div class="result-card">
+                    <div class="label">Max</div>
+                    <div class="value">{{ results.max }}</div>
+                </div>
+                <div class="result-card">
+                    <div class="label">Sum</div>
+                    <div class="value">{{ results.total or results.sum }}</div>
+                </div>
+                <div class="result-card result-card-wide">
+                    <div class="label">Average</div>
+                    <div class="value">{{ results.average }}</div>
+                </div>
+            </div>
+
+            {% if numbers %}
+            <div class="numbers-block">
+                <h3>Numbers Provided</h3>
+                <pre class="numbers-list" aria-label="Numbers provided">{{ numbers | join(', ') }}</pre>
+            </div>
+            {% endif %}
+
+            <p class="back-link"><a href="/">Analyze another set</a></p>
+            {% else %}
+            <div role="alert">No analysis results available.</div>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-left">Built for learning · Simple number analysis</div>
+            <div class="footer-right"><a href="/">Home</a> · <a href="mailto:help@example.com">Support</a></div>
+        </div>
+    </footer>
+</body>
+</html>

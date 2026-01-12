@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Number Input — Data Analyzer</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">Data Analyzer</h1>
+      <p class="tagline">Quick numeric summaries — count, min, max, sum, average</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" role="region" aria-labelledby="enter-title">
+      <h2 id="enter-title">Enter Numbers</h2>
+
+      <form action="/analyze" method="post" novalidate class="form">
+        <label for="numbers" class="label">Numbers (separate with commas or whitespace)</label>
+        <textarea id="numbers" name="numbers" rows="5" placeholder="e.g. 1, 2.5, 3" required aria-describedby="error" class="textarea"></textarea>
+
+        <div id="error" role="alert" aria-live="assertive" class="error" hidden></div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Submit</button>
+          <button type="reset" class="btn">Clear</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">Built for learning · Simple number analysis</div>
+      <div class="footer-right">Need help? <a href="mailto:help@example.com">Contact</a></div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,198 @@
+/* Professional centered layout, spacing, and color theme */
+
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --muted-strong:#3f4550;
+  --accent:#2563eb;
+  --accent-2:#06b6d4;
+  --shadow: 0 6px 18px rgba(15,23,42,0.08);
+  --radius:10px;
+  --container-width:820px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  background:linear-gradient(180deg,var(--bg) 0%, #eef2f6 100%);
+  color:#0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+.container{
+  max-width:var(--container-width);
+  margin:32px auto;
+  padding:0 20px;
+}
+
+/* Header */
+.site-header{
+  background: linear-gradient(90deg, rgba(37,99,235,0.06), rgba(6,182,212,0.03));
+  padding:28px 0;
+  text-align:center;
+  border-bottom:1px solid rgba(14,35,80,0.04);
+  box-shadow: 0 4px 18px rgba(12,24,48,0.04);
+}
+.header-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+}
+.brand{
+  margin:0;
+  font-size:24px;
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:0.4px;
+}
+.tagline{
+  margin:0;
+  color:var(--muted-strong);
+  font-size:13px;
+  opacity:0.95;
+}
+
+/* Footer */
+.site-footer{
+  background: #ffffff;
+  border-top:1px solid #eef3fb;
+  padding:18px 0 28px;
+  color:var(--muted);
+  font-size:14px;
+}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.footer-left{color:var(--muted-strong);font-weight:600}
+.footer-right{font-size:13px;color:var(--muted)}
+.footer-right a{color:var(--accent-2);text-decoration:none;margin-left:8px}
+.footer-right a:first-child{margin-left:0}
+
+/* Card */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:24px;
+  margin-top:18px;
+}
+
+/* Form */
+.form .label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:600;
+  color:#0b1220;
+}
+.textarea{
+  width:100%;
+  min-height:120px;
+  border:1px solid #e6e9ef;
+  border-radius:8px;
+  padding:12px;
+  font-size:15px;
+  resize:vertical;
+  background:#fff;
+  color:#061025;
+}
+.error{
+  color:#b91c1c;
+  margin-top:8px;
+  font-size:14px;
+}
+
+/* Buttons */
+.form-actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+  justify-content:flex-start;
+}
+.btn{
+  padding:10px 14px;
+  border-radius:8px;
+  border:1px solid transparent;
+  background:transparent;
+  cursor:pointer;
+  font-weight:600;
+  color:var(--accent);
+}
+.btn.primary{
+  background:var(--accent);
+  color:white;
+  box-shadow:0 6px 14px rgba(37,99,235,0.12);
+}
+.btn:active{transform:translateY(1px)}
+
+/* Results grid */
+.results-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:12px;
+}
+.result-card{
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border:1px solid #eef3fb;
+  border-radius:10px;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.result-card .label{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:6px;
+  font-weight:600;
+}
+.result-card .value{
+  font-size:20px;
+  color:#071033;
+  font-weight:700;
+}
+.result-card-wide{
+  grid-column:1/-1;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+/* Numbers block */
+.numbers-block{
+  margin-top:16px;
+}
+.numbers-list{
+  background:#f7fafc;
+  padding:12px;
+  border-radius:8px;
+  overflow:auto;
+  border:1px solid #eef3fb;
+  color:#0a1626;
+}
+
+/* Small utilities */
+h2{margin:0 0 12px 0;font-size:18px}
+h3{margin:10px 0;font-size:15px;color:#0b1220}
+.back-link{margin-top:16px}
+a{color:var(--accent-2);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Responsive */
+@media (max-width:640px){
+  .results-grid{grid-template-columns:1fr}
+  .container{margin:20px auto;padding:0 16px}
+  .form-actions{flex-direction:column;align-items:stretch}
+  .btn{width:100%}
+}
