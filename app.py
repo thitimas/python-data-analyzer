@@ -52,8 +52,13 @@ def analyze_weather():
         try:
             results = analyze_time_series(times, temperatures)
         except WeatherAnalysisError as e:
-            # Render input page with a clear error message for the user
-            return render_template("weather_input.html", error=str(e))
+            # Log the detailed error for debugging and present a user-friendly message
+            app.logger.exception("Weather analysis failed: %s", e)
+            user_message = (
+                "Unable to analyze weather data at this time. "
+                "Please check the location and try again."
+            )
+            return render_template("weather_input.html", error=user_message)
         return render_template("weather_analysis_results.html", analysis=results)
     error_message = "Please provide valid latitude and longitude."
     return render_template("weather_input.html", error=error_message)
